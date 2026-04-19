@@ -1,0 +1,33 @@
+databaseChangeLog:
+  - changeSet:
+      id: 6433e2f1-35dc-4fbf-b944-41b54f87bdfe
+      author: ariel5253@misena.edu.co
+      context: security
+      labels: HU-02
+      comment: Create table person
+      changes:
+        - tagDatabase:
+            tag: v1.0.0
+        - sqlFile:
+            path: 01_tables/0001_create_table_person.sql
+            endDelimiter:  \nGO
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: 11_rollbacks\01_tables\0001_create_table_person.sql
+  - changeSet:
+      id: 0fee7597-c331-4059-91b7-fc7cdf93e435
+      author: ariel5253@misena.edu.co
+      context: security
+      labels: HU-03
+      comment: Create table role
+      changes:
+        - tagDatabase:
+            tag: v1.0.1
+        - sqlFile:
+            path: 01_tables/0002_create_table_role.sql
+            endDelimiter:  \nGO
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: 11_rollbacks\01_tables\0002_create_table_role.sql
