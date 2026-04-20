@@ -1,0 +1,6 @@
+# Requires a local Liquibase installation with the PostgreSQL JDBC driver available.
+changeLogFile=changelog-master.yaml
+url=jdbc:postgresql://localhost:5433/airport
+username=airport_user
+password=Airp0rt#2026!
+driver=org.postgresql.Driver

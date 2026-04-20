@@ -1,13 +1,57 @@
-version: '3.7'
+name: airport-db
 
 services:
-  payment-agreement-silin-db:
-    image: postgres:13
-    container_name: xxxx
+  postgres:
+    image: postgres:16-alpine
     restart: unless-stopped
+
     environment:
-      - POSTGRES_USER=xxx
-      - POSTGRES_PASSWORD=xxx
-      - POSTGRES_DB=xxx
+      POSTGRES_DB: ${POSTGRES_DB:-airport}
+      POSTGRES_USER: ${POSTGRES_USER:-airport_user}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-Airp0rt#2026!}
+
     ports:
-      - "5432:5432"
+      - "${POSTGRES_PORT:-5433}:5432"
+
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - pg_isready -U ${POSTGRES_USER:-airport_user} -d ${POSTGRES_DB:-airport}
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  liquibase:
+    build:
+      context: .
+      dockerfile: docker/liquibase/Dockerfile
+    image: airport-liquibase:5.0.2
+
+    profiles:
+      - tooling
+
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+    working_dir: /workspace
+
+    volumes:
+      - ./:/workspace
+
+    entrypoint:
+      - liquibase
+      - --search-path=/workspace
+      - --changeLogFile=changelog-master.yaml
+      - --classpath=/liquibase/liquibase_libs/postgresql-42.7.8.jar
+      - --url=jdbc:postgresql://postgres:5432/${POSTGRES_DB:-airport}
+      - --username=${POSTGRES_USER:-airport_user}
+      - --password=${POSTGRES_PASSWORD:-Airp0rt#2026!}
+
+    command: update
+
+volumes:
+  postgres_data:

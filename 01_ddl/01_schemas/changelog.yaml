@@ -1,0 +1,17 @@
+databaseChangeLog:
+  - changeSet:
+      id: 002-create-schemas
+      author: amaya
+      logicalFilePath: db/changelog/changes/001_base/002_create_schemas.sql
+      labels: "BD-01-dev,ddl,base,schema"
+      comment: "Creates the baseline schemas: geography, airline, identity, security, customers, airport, aircraft, flight_ops, sales, boarding, payments and billing."
+      changes:
+        - sqlFile:
+            path: 001_create_schemas.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/01_schemas/001_create_schemas.rollback.sql
+            relativeToChangelogFile: true
+            stripComments: false

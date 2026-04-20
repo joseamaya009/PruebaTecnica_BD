@@ -1,0 +1,204 @@
+databaseChangeLog:
+  - changeSet:
+      id: 003-create-geography-tables
+      author: amaya
+      logicalFilePath: db/changelog/changes/001_base/003_create_geography_tables.sql
+      labels: "BD-01-dev,ddl,base,geography"
+      comment: Creates the baseline tables for the geography module.
+      changes:
+        - sqlFile:
+            path: 001_create_geography_tables.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/03_tables/001_create_geography_tables.rollback.sql
+            relativeToChangelogFile: true
+            stripComments: false
+
+  - changeSet:
+      id: 004-create-airline-tables
+      author: amaya
+      logicalFilePath: db/changelog/changes/001_base/004_create_airline_tables.sql
+      labels: "BD-01-dev,ddl,base,airline"
+      comment: Creates the baseline tables for the airline module.
+      changes:
+        - sqlFile:
+            path: 002_create_airline_tables.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/03_tables/002_create_airline_tables.rollback.sql
+            relativeToChangelogFile: true
+            stripComments: false
+
+  - changeSet:
+      id: 005-create-identity-tables
+      author: amaya
+      logicalFilePath: db/changelog/changes/001_base/005_create_identity_tables.sql
+      labels: "BD-01-dev,ddl,base,identity"
+      comment: Creates the baseline tables for the identity module.
+      changes:
+        - sqlFile:
+            path: 003_create_identity_tables.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/03_tables/003_create_identity_tables.rollback.sql
+            relativeToChangelogFile: true
+            stripComments: false
+
+  - changeSet:
+      id: 006-create-security-tables
+      author: amaya
+      logicalFilePath: db/changelog/changes/001_base/006_create_security_tables.sql
+      labels: "BD-01-dev,ddl,base,security"
+      comment: Creates the baseline tables for the security module.
+      changes:
+        - sqlFile:
+            path: 004_create_security_tables.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/03_tables/004_create_security_tables.rollback.sql
+            relativeToChangelogFile: true
+            stripComments: false
+
+  - changeSet:
+      id: 007-create-airport-tables
+      author: amaya
+      logicalFilePath: db/changelog/changes/001_base/007_create_airport_tables.sql
+      labels: "BD-01-dev,ddl,base,airport"
+      comment: Creates the baseline tables for the airport module.
+      changes:
+        - sqlFile:
+            path: 005_create_airport_tables.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/03_tables/005_create_airport_tables.rollback.sql
+            relativeToChangelogFile: true
+            stripComments: false
+
+  - changeSet:
+      id: 008-create-aircraft-tables
+      author: amaya
+      logicalFilePath: db/changelog/changes/001_base/008_create_aircraft_tables.sql
+      labels: "BD-01-dev,ddl,base,aircraft"
+      comment: Creates the baseline tables for the aircraft module.
+      changes:
+        - sqlFile:
+            path: 006_create_aircraft_tables.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/03_tables/006_create_aircraft_tables.rollback.sql
+            relativeToChangelogFile: true
+            stripComments: false
+
+  - changeSet:
+      id: 009-create-customers-tables
+      author: amaya
+      logicalFilePath: db/changelog/changes/001_base/009_create_customers_tables.sql
+      labels: "BD-01-dev,ddl,base,customers"
+      comment: Creates the baseline tables for the customers module.
+      changes:
+        - sqlFile:
+            path: 007_create_customers_tables.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/03_tables/007_create_customers_tables.rollback.sql
+            relativeToChangelogFile: true
+            stripComments: false
+
+  - changeSet:
+      id: 010-create-flight-ops-tables
+      author: amaya
+      logicalFilePath: db/changelog/changes/001_base/010_create_flight_ops_tables.sql
+      labels: "BD-01-dev,ddl,base,flight_ops"
+      comment: Creates the baseline tables for the flight_ops module.
+      changes:
+        - sqlFile:
+            path: 008_create_flight_ops_tables.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/03_tables/008_create_flight_ops_tables.rollback.sql
+            relativeToChangelogFile: true
+            stripComments: false
+
+  - changeSet:
+      id: 011-create-sales-tables
+      author: amaya
+      logicalFilePath: db/changelog/changes/001_base/011_create_sales_tables.sql
+      labels: "BD-01-dev,ddl,base,sales"
+      comment: Creates the baseline tables for the sales module.
+      changes:
+        - sqlFile:
+            path: 009_create_sales_tables.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/03_tables/009_create_sales_tables.rollback.sql
+            relativeToChangelogFile: true
+            stripComments: false
+
+  - changeSet:
+      id: 012-create-boarding-tables
+      author: amaya
+      logicalFilePath: db/changelog/changes/001_base/012_create_boarding_tables.sql
+      labels: "BD-01-dev,ddl,base,boarding"
+      comment: Creates the baseline tables for the boarding module.
+      changes:
+        - sqlFile:
+            path: 010_create_boarding_tables.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/03_tables/010_create_boarding_tables.rollback.sql
+            relativeToChangelogFile: true
+            stripComments: false
+
+  - changeSet:
+      id: 013-create-payments-tables
+      author: amaya
+      logicalFilePath: db/changelog/changes/001_base/013_create_payments_tables.sql
+      labels: "BD-01-dev,ddl,base,payments"
+      comment: Creates the baseline tables for the payments module.
+      changes:
+        - sqlFile:
+            path: 011_create_payments_tables.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/03_tables/011_create_payments_tables.rollback.sql
+            relativeToChangelogFile: true
+            stripComments: false
+
+  - changeSet:
+      id: 014-create-billing-tables
+      author: amaya
+      logicalFilePath: db/changelog/changes/001_base/014_create_billing_tables.sql
+      labels: "BD-01-dev,ddl,base,billing"
+      comment: Creates the baseline tables for the billing module.
+      changes:
+        - sqlFile:
+            path: 012_create_billing_tables.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/03_tables/012_create_billing_tables.rollback.sql
+            relativeToChangelogFile: true
+            stripComments: false
